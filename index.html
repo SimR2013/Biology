@@ -5,10 +5,82 @@
 <style>
 :root{--bg:#091821;--panel:#122b34;--panel2:#1a3941;--border:#345d65;--text:#eafdf6;--muted:#aac8c2;--accent:#94f1d8;--gold:#f7d58d}
 *{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at 85% 0,#1d4c4b,transparent 40%),radial-gradient(ellipse at 0 85%,#1c334b,transparent 40%),var(--bg);font:16px/1.55 system-ui,-apple-system,Segoe UI,sans-serif;color:var(--text);min-height:100vh}button,select{font:inherit}button{cursor:pointer}button:focus-visible,a:focus-visible,select:focus-visible{outline:3px solid var(--gold);outline-offset:3px}a{color:var(--accent)}header{border-bottom:1px solid #3d6068;background:#0b2029df;backdrop-filter:blur(18px)}.bar{max-width:1170px;margin:auto;display:flex;align-items:center;justify-content:space-between;padding:16px 22px;gap:20px;flex-wrap:wrap}.logo{font-weight:950;letter-spacing:.05em;font-size:1.05rem;display:flex;align-items:center;gap:11px}.logo-mark{width:38px;height:38px;background:linear-gradient(140deg,#adf6d7,#72c0ba);color:#0c302a;display:grid;place-items:center;border-radius:12px}.header-links{display:flex;gap:16px;align-items:center;font-size:.87rem}.header-links a{text-decoration:none;color:#c4e3dc}main{max-width:1170px;margin:auto;padding:40px 22px 90px}.eyebrow{color:var(--accent);font-weight:900;letter-spacing:.17em;text-transform:uppercase;font-size:.75rem}.hero{display:grid;grid-template-columns:1.2fr .8fr;gap:25px;align-items:center;margin:12px 0 40px}h1{font-size:clamp(2.6rem,6vw,5.4rem);line-height:1.05;letter-spacing:-.07em;margin:13px 0}h1 em{font-style:normal;color:var(--accent)}p{color:var(--muted)}.intro{font-size:1.09rem;max-width:600px}.badge{display:inline-flex;border:1px solid #6b998a;background:#28483e;border-radius:30px;padding:5px 11px;color:#d1ffed;font-size:.77rem;font-weight:800}.hero-side{background:linear-gradient(145deg,#1b4946,#142c40);border:1px solid #56847f;border-radius:22px;padding:24px;min-height:245px}.hero-side b{display:block;font-size:2.3rem;color:var(--accent)}.hero-side strong{font-size:1.1rem}.hero-side p{font-size:.92rem}h2{font-size:1.75rem;letter-spacing:-.035em;margin:7px 0 12px}h3{margin:0 0 7px;font-size:1.2rem}.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}.chapter-card{border:1px solid var(--border);border-radius:20px;padding:22px;background:linear-gradient(155deg,#173741,#102934);display:flex;flex-direction:column;gap:12px;min-height:255px}.chapter-card.selected{border-color:var(--accent);box-shadow:inset 0 0 0 1px #8aeccc44,0 10px 40px #00000026}.chapter-card p{margin:0;flex:1}.chapter-title{display:flex;align-items:center;justify-content:space-between;gap:8px}.chapter-icon{font-size:2rem}.chapter-card button,.btn{border:0;background:var(--accent);color:#0a302f;border-radius:12px;font-weight:850;padding:12px 15px;text-decoration:none;display:inline-flex;align-items:center;justify-content:center}.chapter-card button:disabled{background:#2c4b51;color:#b1c7c5;cursor:not-allowed}.chapter-card .status{font-size:.77rem;color:var(--gold);font-weight:850}.panel{background:#122d36;border:1px solid #37616a;border-radius:21px;padding:24px;margin:23px 0}.stephead{display:flex;align-items:center;justify-content:space-between;gap:15px;flex-wrap:wrap}.step{display:inline-flex;align-items:center;gap:8px;font-size:.8rem;letter-spacing:.08em;text-transform:uppercase;color:#abdfd4;font-weight:800}.step i{font-style:normal;display:grid;place-items:center;width:27px;height:27px;border-radius:50%;background:#2d5b5a;color:#d7fff4}.mode-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:17px}.mode{border:1px solid #47747c;background:#173943;border-radius:15px;color:var(--text);min-height:150px;padding:19px;text-align:left;display:flex;flex-direction:column;align-items:flex-start;gap:6px}.mode:hover,.mode[aria-pressed=true]{border-color:var(--accent);background:#1b4a4b}.mode[aria-pressed=true]{box-shadow:inset 0 0 0 2px #83dfca}.mode b{font-size:1.07rem}.mode small{color:var(--muted)}.mode-icon{font-size:1.7rem}.options{display:flex;gap:13px;flex-wrap:wrap;align-items:end}.options label{font-weight:700;color:#d6f2eb;display:grid;gap:6px;font-size:.92rem}.options select{background:#0b2530;border:1px solid #4e777b;border-radius:12px;color:white;padding:12px;min-width:170px}.start{display:flex;gap:15px;align-items:center;flex-wrap:wrap;margin-top:18px}.start .btn{font-size:1.08rem;padding:14px 25px}.hint{font-size:.87rem;color:#b4d5ce}.highlight{background:#1e3e41;border-left:4px solid var(--accent);padding:13px 16px;border-radius:0 12px 12px 0}.links{display:flex;gap:10px;flex-wrap:wrap}.links a{background:#25434c;color:#e2fcf4;border:1px solid #49787c;border-radius:11px;padding:11px 15px;text-decoration:none;font-weight:750}.foot{margin-top:38px;font-size:.84rem;border-top:1px solid #345762;padding-top:22px;color:var(--muted)}@media(max-width:900px){.grid,.mode-grid{grid-template-columns:repeat(2,1fr)}.hero{grid-template-columns:1fr}}@media(max-width:610px){main{padding:25px 15px 55px}.grid,.mode-grid{grid-template-columns:1fr}.chapter-card{min-height:unset}.hero-side{min-height:unset}.panel{padding:17px}.bar{padding:13px 15px}.header-links{gap:11px}}
+
+/* Study Vault 2.0 dashboard enhancement */
+:root{--bg:#07151b;--panel:#122a31;--panel2:#183b42;--border:#345d60;--text:#f4fff9;--muted:#b6d0cb;--accent:#a5f5d8;--gold:#fbd899}
+html{scroll-behavior:smooth}
+body{background:radial-gradient(ellipse at 12% 1%,#124c42aa,transparent 42%),radial-gradient(ellipse at 85% 44%,#132f43,transparent 43%),#07151b}
+header{position:sticky;top:0;z-index:40;box-shadow:0 9px 30px #0000002b}
+.bar,main{max-width:1230px}
+.logo{letter-spacing:-.035em;font-weight:850}
+.logo-mark{border-radius:13px;box-shadow:0 6px 25px #79d1ac36}
+.header-links a{padding:9px 11px;border-radius:10px}
+.header-links a:hover{background:#ffffff12}
+.hero{margin-top:22px;gap:35px}
+.hero-side{border-color:#577e72;background:linear-gradient(145deg,#1a5243,#102c35);box-shadow:0 20px 50px #020c1270}
+h1{font-size:clamp(3rem,7vw,6.3rem)}
+h1 em{background:linear-gradient(100deg,#a8ffe0,#99cfff);color:transparent;background-clip:text}
+h2{font-size:clamp(1.6rem,3vw,2.25rem)}
+.chapter-card,.panel,.mode,.hero-side{box-shadow:0 12px 25px #00000017}
+.chapter-card,.mode,.panel{transition:border-color .2s,transform .2s,box-shadow .2s}
+.chapter-card:hover,.mode:hover{transform:translateY(-3px);box-shadow:0 17px 30px #00000035}
+.btn,.chapter-card button{transition:transform .18s,filter .18s}
+.btn:hover,.chapter-card button:hover:not(:disabled){transform:translateY(-2px);filter:brightness(1.1)}
+.mode{min-height:145px}
+.panel{border-radius:24px}
+#chapters,#modes,#launch{scroll-margin-top:96px}
+#vault-tools{scroll-margin-top:95px}
+.studytop{display:flex;justify-content:space-between;gap:20px;align-items:center;flex-wrap:wrap;margin-bottom:16px}
+.mutedline{color:var(--muted);font-size:.92rem}
+.toolgrid{display:grid;grid-template-columns:1.2fr 1fr 1fr;gap:15px;margin:14px 0 30px}
+.toolbox{background:linear-gradient(145deg,#173b3e,#102832);border:1px solid #3d6e6c;border-radius:20px;padding:20px;min-width:0}
+.toolbox h3{display:flex;align-items:center;gap:8px;font-size:1.05rem;margin:0 0 5px}
+.toolbox p{font-size:.86rem;margin:4px 0 13px}
+.toolbox .big{font-size:2.5rem;line-height:1.05;font-weight:900;color:#b2f8da;letter-spacing:-.05em;margin:14px 0 4px}
+.timer-actions{display:flex;gap:8px;flex-wrap:wrap}
+.minibtn{border-radius:10px;background:#285153;border:1px solid #4b8680;color:#f4fff9;padding:8px 12px;font-size:.84rem;font-weight:800}
+.minibtn.primary{background:var(--accent);color:#11362f;border:0}
+.toolinput{background:#0d2b32;border:1px solid #53817f;border-radius:11px;color:white;padding:11px 13px;width:100%;min-width:0;margin:6px 0}
+.goaltrack{height:9px;background:#08272d;border-radius:20px;overflow:hidden}
+.goaltrack i{display:block;height:100%;background:#9af4d4;transition:width .2s}
+.searchresults{display:grid;gap:7px;margin-top:8px}
+.searchresults a{display:block;text-decoration:none;background:#24454b;color:#ecfff7;padding:9px 11px;border-radius:10px;font-size:.86rem}
+.searchresults a:hover{background:#34635e}
+.quick-strip{display:flex;gap:10px;overflow-x:auto;padding:3px 0 13px;scroll-snap-type:x mandatory}
+.quick-strip a{scroll-snap-align:start;flex:0 0 auto;text-decoration:none;color:#0a342e;background:#b0f3df;border-radius:13px;padding:12px 18px;font-weight:850;font-size:.88rem}
+.quick-strip a.secondary{background:#213e47;color:#e0faf5;border:1px solid #457273}
+.daytag{color:var(--gold);font-size:.75rem;letter-spacing:.08em;text-transform:uppercase;font-weight:900}
+#vault-achievements{display:flex;gap:8px;flex-wrap:wrap}
+#vault-achievements span{font-size:.76rem;border:1px solid #59827b;border-radius:25px;padding:6px 10px;background:#244740}
+body.light{--bg:#f3f9f6;--panel:#fff;--panel2:#e2f3e9;--border:#c8ddd3;--text:#15382d;--muted:#4f6d61;--accent:#17644b;--gold:#805100;background:#f2f8f4;color:#15382d}
+body.light header{background:#e7f4ecf0;border-color:#c1dcd0}
+body.light .header-links a,body.light .hero-side p{color:#345c4c}
+body.light .hero-side{background:#e1f0e7;color:#163b2d;border-color:#b2d0bf}
+body.light .hero-side b,body.light h1 em{color:#1d7557;background:none}
+body.light .chapter-card,body.light .panel,body.light .mode,body.light .toolbox{background:#fff;color:#163b2d;border-color:#c5ded0}
+body.light .chapter-card p,body.light .mode small,body.light .toolbox p,body.light .hint{color:#4f6d61}
+body.light .chapter-card button,body.light .btn{background:#187154;color:white}
+body.light .mode[aria-pressed=true]{background:#e5f5eb}
+body.light .toolinput{color:#164130;background:#f5faf6;border-color:#9dc3ad}
+body.light .minibtn:not(.primary){background:#e5f4ec;color:#184b3b}
+body.light .quick-strip a.secondary{background:white;color:#154936}
+body.light #vault-achievements span{background:#e3f5ec}
+body.light .toolbox .big{color:#216a52}
+body.light .badge{color:#15583f;background:#dff2e5;border-color:#8bbca1}
+@media(max-width:920px){.toolgrid{grid-template-columns:1fr 1fr}.toolbox:first-child{grid-column:span 2}}
+@media(max-width:610px){.toolgrid{grid-template-columns:1fr}.toolbox:first-child{grid-column:span 1}.header-links{font-size:.76rem}.hero{margin-top:12px}h1{font-size:3.4rem}.daytag{font-size:.7rem}}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{scroll-behavior:auto!important;transition:none!important}}
 </style></head><body>
-<header><div class="bar"><div class="logo"><span class="logo-mark">B</span><span>BIOLOGY STUDY VAULT</span></div><div class="header-links"><a href="chapter4.html">Chapter 4 Study</a><a href="bioforge.html">BioForge Game</a></div></div></header>
+<header><div class="bar"><div class="logo"><span class="logo-mark">B</span><span>BIOLOGY STUDY VAULT</span></div><div class="header-links"><button class="minibtn" id="vaultTheme" type="button" aria-label="Toggle light and dark mode">☀ Theme</button><a href="chapter4.html">Chapter 4 Study</a><a href="bioforge.html">BioForge Game</a></div></div></header>
 <main><section class="hero"><div><div class="eyebrow">WELCOME TO YOUR STUDY HQ</div><h1>Choose a chapter.<br><em>Master the test.</em></h1><p class="intro">One organized home for your teacher-style exams, flashcards, complete notes, writing practice, and biology games. Pick what you want to work on first.</p><span class="badge">No login · Free · Works on mobile</span></div><aside class="hero-side"><span class="eyebrow">ACTIVE TEST BANK</span><b>Chapter 4</b><strong>Ecosystems + Human Impacts</strong><p>4.1 Producers & Consumers · 4.2 Energy Flow · 4.3 Cycles of Matter · 7.2 Human Impacts</p><span class="badge">23-question original mock exam + extra practice</span></aside></section>
-<section id="chapters"><div class="step"><i>1</i> SELECT YOUR CHAPTER</div><h2>What are you studying today?</h2><div class="grid">
+<section id="vault-tools" aria-labelledby="vault-heading">
+<div class="studytop"><div><div class="eyebrow">YOUR PERSONAL COMMAND CENTER</div><h2 id="vault-heading">Your study dashboard</h2><div class="mutedline">Choose your goal, build momentum, and jump straight back into learning.</div></div><span class="badge" id="vault-date">READY TO LEARN</span></div>
+<div class="quick-strip" aria-label="Quick study links"><a href="chapter4.html?mode=exam">🎯 Mock exam</a><a href="chapter4.html?mode=generator">♾️ Endless tests</a><a href="chapter4.html?mode=flash">🧠 Flashcards</a><a href="chapter4.html?mode=written">✍️ Written answers</a><a href="chapter4.html?mode=hardcore">🔥 Hardcore</a><a class="secondary" href="bioforge.html">🕹️ BioForge</a></div>
+<div class="toolgrid">
+<div class="toolbox"><h3>⏱️ Focus timer</h3><p>A simple study sprint. Your timer stays on this page.</p><div class="big" id="vault-clock" role="timer">25:00</div><div class="timer-actions"><button class="minibtn primary" id="vault-start" type="button">Start</button><button class="minibtn" id="vault-pause" type="button">Pause</button><button class="minibtn" id="vault-reset" type="button">Reset</button><select class="toolinput" style="width:auto;margin:0" id="vault-length" aria-label="Focus timer length"><option value="15">15 min</option><option value="25" selected>25 min</option><option value="45">45 min</option></select></div><p id="vault-timer-note" aria-live="polite">Complete a session to add minutes to your progress.</p></div>
+<div class="toolbox"><h3>🎯 Weekly study target</h3><p>Track completed focus minutes, saved on this device.</p><div class="big"><span id="vault-minutes">0</span><span style="font-size:1rem;color:var(--muted)"> / <span id="vault-target">150</span> min</span></div><div class="goaltrack" role="progressbar" aria-label="Weekly study progress" aria-valuemin="0" aria-valuemax="150" aria-valuenow="0" id="vault-track"><i style="width:0" id="vault-fill"></i></div><div class="timer-actions" style="margin-top:13px"><button class="minibtn" id="vault-goal" type="button">Change goal</button><button class="minibtn" id="vault-clear" type="button">Reset week</button></div><div id="vault-achievements" style="margin-top:13px"></div></div>
+<div class="toolbox"><h3>⚡ Find a study mode</h3><p>Search for the exact type of practice you need.</p><label for="vault-search" class="daytag">Quick search</label><input class="toolinput" id="vault-search" placeholder="Try flashcards, energy flow, quiz..."><div class="searchresults" id="vault-results" aria-live="polite"></div></div>
+</div></section><section id="chapters"><div class="step"><i>1</i> SELECT YOUR CHAPTER</div><h2>What are you studying today?</h2><div class="grid">
 <div class="chapter-card"><div class="chapter-title"><span class="chapter-icon">🔬</span><span class="status">NEEDS COMPLETE MATERIALS</span></div><h3>Chapter 1 · The Science of Biology</h3><p>Scientific investigations, variables, validity, characteristics of life, peer review.</p><button disabled title="Chapter 1 complete source-based study page has not been built">Coming soon</button></div>
 <div class="chapter-card"><div class="chapter-title"><span class="chapter-icon">⚛️</span><span class="status">NEEDS COMPLETE MATERIALS</span></div><h3>Chapter 2 · Chemistry of Life</h3><p>Atoms, bonds, water, acids and bases, and chemistry in living things.</p><button disabled title="Chapter 2 complete source-based study page has not been built">Coming soon</button></div>
 <div class="chapter-card selected"><div class="chapter-title"><span class="chapter-icon">🌿</span><span class="badge">READY</span></div><h3>Chapter 4 · Ecosystems</h3><p>All shared Chapter 4 lessons, teaching models, question practice, mock exams and study resources.</p><button id="pickChapter4">Selected ✓</button></div></div><p class="hint">Chapters 1 and 2 are listed for future expansion, but they are not presented as finished tests. This prevents made-up content from being passed off as your course materials.</p></section>
@@ -37,5 +109,32 @@ function choose(value){if(!names[value])return;mode=value;for(const b of buttons
 buttons.forEach(b=>b.addEventListener('click',()=>choose(b.dataset.mode)));document.getElementById('pickChapter4').onclick=()=>document.getElementById('modes').scrollIntoView({behavior:'smooth'});
 launch.onclick=()=>{const url=mode==='bioforge'?'bioforge.html':'chapter4.html?mode='+encodeURIComponent(mode)+(filterable.has(mode)?'&topic='+encodeURIComponent(topic.value):'');location.assign(url)};
 try{choose(localStorage.getItem('biology:picker:mode')||'exam')}catch(e){choose('exam')}
+})();
+</script><script>
+(function(){
+'use strict';
+const prefix='bio-vault-v2:',qs=id=>document.getElementById(id);
+let now=new Date(),monday=new Date(now);monday.setHours(0,0,0,0);monday.setDate(now.getDate()-((now.getDay()+6)%7));
+const wk=monday.toISOString().slice(0,10),minutesKey=prefix+'minutes-'+wk,goalKey=prefix+'goal';
+const read=(key,def)=>{try{return localStorage.getItem(key)??def}catch(e){return def}},write=(key,value)=>{try{localStorage.setItem(key,String(value))}catch(e){}};
+let mins=Math.max(0,Number(read(minutesKey,'0'))||0),goal=Math.max(15,Number(read(goalKey,'150'))||150);
+qs('vault-date').textContent=new Intl.DateTimeFormat(undefined,{month:'short',day:'numeric',weekday:'long'}).format(now);
+function progress(){qs('vault-minutes').textContent=mins;qs('vault-target').textContent=goal;qs('vault-fill').style.width=Math.min(100,mins/goal*100)+'%';qs('vault-track').setAttribute('aria-valuemax',goal);qs('vault-track').setAttribute('aria-valuenow',Math.min(goal,mins));qs('vault-achievements').innerHTML=mins>=goal?'<span>🏆 Weekly goal reached</span>':mins>=60?'<span>🚀 One hour studied</span>':mins>=25?'<span>🌿 First focus sprint</span>':'<span>🌱 Your first sprint awaits</span>'}
+progress();
+qs('vault-goal').onclick=()=>{const n=prompt('Weekly study goal in minutes (15 to 1000):',goal);if(n===null)return;const v=Number(n);if(!Number.isInteger(v)||v<15||v>1000)return alert('Choose a whole number from 15 to 1000.');goal=v;write(goalKey,goal);progress()};
+qs('vault-clear').onclick=()=>{if(!confirm('Reset this week’s focus minutes?'))return;mins=0;write(minutesKey,mins);progress()};
+let sec=25*60,run=false,startAt=0,remainingAtStart=sec,interval=0;
+function clock(){qs('vault-clock').textContent=String(Math.floor(sec/60)).padStart(2,'0')+':'+String(sec%60).padStart(2,'0');document.title=(run?qs('vault-clock').textContent+' • ':'')+'Biology Study Vault | Choose Your Test'}
+function pause(){if(run){sec=Math.max(0,Math.ceil(remainingAtStart-(Date.now()-startAt)/1000));run=false;clearInterval(interval);interval=0;clock()}}
+function tick(){sec=Math.max(0,Math.ceil(remainingAtStart-(Date.now()-startAt)/1000));clock();if(sec===0){run=false;clearInterval(interval);interval=0;const total=Number(qs('vault-length').value);mins+=total;write(minutesKey,mins);progress();qs('vault-timer-note').textContent='🎉 Focus sprint completed! +'+total+' minutes logged.';if('Notification' in window&&Notification.permission==='granted')new Notification('Study sprint complete!')}}
+qs('vault-start').onclick=()=>{if(run)return;if(sec<=0)sec=Number(qs('vault-length').value)*60;remainingAtStart=sec;startAt=Date.now();run=true;interval=setInterval(tick,250);clock();qs('vault-timer-note').textContent='You got this! Stay focused.'};
+qs('vault-pause').onclick=pause;
+qs('vault-reset').onclick=()=>{pause();sec=Number(qs('vault-length').value)*60;clock();qs('vault-timer-note').textContent='Ready for a new sprint.'};
+qs('vault-length').onchange=()=>{pause();sec=Number(qs('vault-length').value)*60;clock()};clock();
+const terms=[['Mock Exam','chapter4.html?mode=exam','test exam teacher questions'],['Endless Tests','chapter4.html?mode=generator','unlimited quiz practice scenario'],['Flashcards','chapter4.html?mode=flash','memorize vocabulary recall'],['Study Notes','chapter4.html?mode=learn','lessons 4.1 4.2 4.3 7.2 producers consumers energy flow cycles human impacts'],['Hardcore','chapter4.html?mode=hardcore','difficult advanced questions'],['Written Practice','chapter4.html?mode=written','explanations CER short answer'],['BioForge','bioforge.html','ecosystem ecology food web game simulation'],['Guided Tutor','chapter4.html?mode=tutor','explanation tutor help']];
+function search(){const q=qs('vault-search').value.trim().toLowerCase(),list=q?terms.filter(t=>t.join(' ').toLowerCase().includes(q)):terms.slice(0,3);qs('vault-results').innerHTML=list.length?list.slice(0,5).map(t=>'<a href="'+t[1]+'">'+t[0]+' ↗</a>').join(''):'<div class="hint">No match. Try “quiz”, “flashcards”, or “ecosystem”.</div>'}
+qs('vault-search').addEventListener('input',search);search();
+const theme=read(prefix+'theme','dark');if(theme==='light')document.body.classList.add('light');
+qs('vaultTheme').onclick=()=>{document.body.classList.toggle('light');write(prefix+'theme',document.body.classList.contains('light')?'light':'dark')};
 })();
 </script></body></html>
