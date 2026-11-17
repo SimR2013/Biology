@@ -6,6 +6,8 @@ if(!mode||!allowed.has(mode))return;
 const btn=document.querySelector('#nav button[data-page="'+mode+'"]');
 if(!btn)return;
 btn.click();
+// Open the requested activity itself, not the top of the chapter homepage.
+requestAnimationFrame(()=>requestAnimationFrame(()=>{const section=document.getElementById(mode);if(section&&section.classList.contains("active")){const y=section.getBoundingClientRect().top+window.scrollY-12;window.scrollTo({top:Math.max(0,y),behavior:"instant"});}}));
 const targets={generator:['genUnit','genFlashUnit'],flash:['flashUnit'],learn:['unit'],everything:['allUnit'],hardcore:['hardUnit'],practice:['practiceUnit']};
 if(['all','4.1','4.2','4.3','7.2'].includes(topic)){
 for(const id of targets[mode]||[]){const e=document.getElementById(id);if(e){e.value=topic;e.dispatchEvent(new Event('change',{bubbles:true}))}}
