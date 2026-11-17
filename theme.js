@@ -12,7 +12,7 @@ const mq=window.matchMedia?matchMedia('(prefers-color-scheme: light)'):null;
 const root=document.documentElement;
 function hex(h,s,l){s/=100;l/=100;const a=s*Math.min(l,1-l),fn=n=>{const k=(n+h/30)%12;return Math.round(255*(l-a*Math.max(-1,Math.min(k-3,9-k,1)))).toString(16).padStart(2,'0')};return '#'+fn(0)+fn(8)+fn(4)}
 function customPalette(H,light){
-const base=light?{bg:hex(H,34,96),head:hex(H,45,98),card:'#ffffff',card2:hex(H,34,90),border:hex(H,28,74),text:hex(H,40,19),muted:hex(H,24,37),accent:hex(H,72,34),accentText:'#ffffff',focus:hex((H+35)%360,66,37),soft:hex(H,50,32)}:{bg:hex(H,42,12),head:hex(H,45,16),card:hex(H,36,21),card2:hex(H,33,27),border:hex(H,23,43),text:'#f1f6ff',muted:hex(H,25,79),accent:hex(H,67,78),accentText:hex(H,42,13),focus:'#f0dba6',soft:hex(H,65,87)};
+const base=light?{bg:hex(H,34,96),header:hex(H,45,98),card:'#ffffff',card2:hex(H,34,90),border:hex(H,28,74),text:hex(H,40,19),muted:hex(H,24,37),accent:hex(H,72,34),accentText:'#ffffff',focus:hex((H+35)%360,66,37),soft:hex(H,50,32)}:{bg:hex(H,42,12),header:hex(H,45,16),card:hex(H,36,21),card2:hex(H,33,27),border:hex(H,23,43),text:'#f1f6ff',muted:hex(H,25,79),accent:hex(H,67,78),accentText:hex(H,42,13),focus:'#f0dba6',soft:hex(H,65,87)};
 for(const [k,v] of Object.entries(base))root.style.setProperty('--t-'+k.replace(/[A-Z]/g,x=>'-'+x.toLowerCase()),v);
 return base.bg
 }
