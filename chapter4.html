@@ -30,6 +30,19 @@ select,.tutor-side select{background:#213c59;color:#f2f7fe;border-color:#526d8a}
 .tutor-hintrow button{background:#264763;border-color:#577b99;color:#e7f4ff}
 .tutor-instructions{background:#203c56;border-color:#92cce7}
 
+
+/* Flashcard Studio: uncluttered controls and mobile-first cards */
+.flash-settings{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.flash-settings label{display:grid;gap:6px;color:var(--t-text,#eef6ff);font-weight:750;font-size:.88rem}
+.flash-settings select{width:100%;min-width:0;background:var(--t-card2,#213c59);border:1px solid var(--t-border,#506c89);color:var(--t-text,#eef6ff)}
+.flash-options{margin-bottom:15px}
+.flash-options .controls{margin-top:15px}
+.flash-progress{display:flex;justify-content:space-between;align-items:center;gap:12px;margin:13px 0 8px;flex-wrap:wrap}
+.flash-actions{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:9px;margin:14px 0}
+.flash-actions button{min-height:46px}
+#flashCard{min-height:220px;background:var(--t-card2,#23415d)!important;border-color:var(--t-border,#506d87)!important}
+#flashCard .question,#flashCard .answer{font-size:clamp(1.1rem,2.5vw,1.45rem);line-height:1.55;overflow-wrap:anywhere}
+@media(max-width:730px){.flash-settings{grid-template-columns:1fr}.flash-actions{grid-template-columns:repeat(2,minmax(0,1fr))}}
 </style><link rel="stylesheet" href="responsive.css?v=3"><link rel="stylesheet" href="theme.css?v=1"></head><body><header><div class="inside"><a href="./" style="color:var(--t-accent);display:inline-block;margin-bottom:9px;font-weight:800;text-decoration:none">← Choose another test</a><div class="tag">BIOLOGY • CHAPTER 4 + LESSON 7.2</div><h1>Learn it. Practice it. Ace the test.</h1><p>Teacher-style scenarios • Food-web diagrams • 10% rule • Cycles of matter • Human impacts • 23-question exam + brand-new test sets + written feedback</p><div class="chapter-forge-banner" style="margin:17px 0;padding:17px 20px;background:var(--t-card);border:1px solid var(--t-border);border-radius:17px"><div style="font-weight:900;color:var(--t-accent);letter-spacing:.08em;font-size:.8rem">NEW • BIOFORGE ECOSYSTEM COMMAND CENTER</div><div style="font-weight:850;font-size:1.25rem;margin:6px 0 10px">Simulate food webs, control nutrient runoff, fight biology boss battles.</div><a href="bioforge.html" style="display:inline-block;background:var(--t-accent);color:var(--t-accent-text);text-decoration:none;font-weight:900;padding:11px 16px;border-radius:11px">🚀 Launch BioForge</a></div><div class="nav" id="nav"><button data-page="home" class="active">Dashboard</button><button data-page="path">🧭 Choose Mode</button><button data-page="hardcore">🔥 Hardcore Study</button><button data-page="ai-live">🤖 Live AI Tutor</button><button data-page="lab">🌿 Ecosystem Lab <span style="color:#ffd37a">NEW</span></button><button data-page="learn">Study Notes</button><button data-page="flash">Flashcards</button><button data-page="everything">All Concepts + Recall Quiz</button><button data-page="practice">Practice</button><button data-page="exam">Mock Exam</button><button data-page="tutor">Tutor Studio ✨</button><button data-page="written">Written Prep</button></div></div></header><main>
 
 
@@ -44,7 +57,28 @@ select,.tutor-side select{background:#213c59;color:#f2f7fe;border-color:#526d8a}
 </section>
 <section class="view active" id="home"><h2>Your study dashboard</h2><div class="grid"><div class="card"><div class="small">Flashcards mastered</div><div class="stat" id="sFlash">0</div><p>Tap a flashcard to reveal the explanation. Mark it mastered when you know it.</p></div><div class="card"><div class="small">Practice accuracy</div><div class="stat" id="sPractice">—</div><p>Get instant explanations after each answer.</p></div><div class="card"><div class="small">Latest mock exam</div><div class="stat" id="sExam">Not taken</div><p>21 multiple-choice + 2 written response questions.</p></div></div><div class="card"><h3>Your actual test blueprint</h3><p><b>23 questions, including 2 written responses.</b> Coverage: 4.1 producers/consumers; 4.2 food webs/pyramids; 4.3 matter cycles; 7.2 human impacts. Practice emphasizes applications, diagrams, BEST-answer questions, prediction and CER explanations.</p><div class="controls"><button class="btn" onclick="page('exam')">Take mock test</button><button class="btn secondary" onclick="page('learn')">Study first</button></div></div><div class="card"><h3>Diagram: where does the energy go?</h3><div id="pyramid"></div><p class="small">The model assumes ~10% transfer from each trophic level to the next. Energy not transferred is used or dispersed, often as heat; matter continues to cycle.</p></div></section>
 <section class="view" id="learn"><h2>Study notes from your textbook and teacher's slides</h2><p>Choose one of the tested units. Focus on the examples and common traps.</p><div class="controls"><select id="unit" onchange="renderNotes()"><option value="all">All topics</option><option>4.1</option><option>4.2</option><option>4.3</option><option>7.2</option></select></div><div id="notes"></div></section>
-<section class="view" id="flash"><h2>Flashcard review</h2><div class="controls"><select id="flashUnit" onchange="resetFlash()"><option value="all">All chapters</option><option>4.1</option><option>4.2</option><option>4.3</option><option>7.2</option></select><span class="chip" id="flashCounter"></span></div><div class="flash" id="flashCard" onclick="this.classList.toggle('flipped')"><div class="question" id="flashQuestion"></div><div class="answer" id="flashAnswer"></div></div><p class="small">Tap the card to flip it.</p><div class="controls"><button class="btn secondary" onclick="changeFlash(-1)">← Previous</button><button class="btn" onclick="masterFlash()">✓ I know this</button><button class="btn secondary" onclick="changeFlash(1)">Next →</button></div></section>
+<section class="view" id="flash">
+<h2>🧠 Flashcard Studio</h2><p>Practice the Chapter 4 concepts your way. Choose a lesson, mix the order, reverse the cards, or focus on cards you missed.</p>
+<div class="card flash-options">
+<div class="flash-settings">
+<label>Lesson<select id="flashUnit" onchange="resetFlash()"><option value="all">All lessons</option><option value="4.1">4.1 Producers &amp; Consumers</option><option value="4.2">4.2 Energy Flow</option><option value="4.3">4.3 Cycles of Matter</option><option value="7.2">7.2 Human Impacts</option></select></label>
+<label>Review mode<select id="flashMode" onchange="resetFlash()"><option value="all">📚 All cards</option><option value="unlearned">🌱 Not yet mastered</option><option value="missed">🔁 Need more practice</option><option value="mastered">✅ Mastered cards</option></select></label>
+<label>Card direction<select id="flashDirection" onchange="renderFlash()"><option value="normal">Term / question → answer</option><option value="reverse">Answer → term / question</option></select></label>
+</div>
+<div class="controls"><button class="btn secondary" onclick="shuffleFlash()">🔀 Shuffle cards</button><button class="btn secondary" onclick="resetFlash()">↻ Restart selection</button><button class="btn secondary" onclick="location.assign('chapter4.html?mode=everything')">📝 Flashcard quiz</button></div>
+<div class="flash-progress"><span id="flashCounter" class="chip" aria-live="polite">Loading cards</span><span id="flashStats" class="small"></span></div>
+<div class="progress" aria-label="Flashcard review progress"><div id="flashProgressBar" style="width:0"></div></div>
+</div>
+<div class="flash" id="flashCard" onclick="this.classList.toggle('flipped')" role="button" tabindex="0" aria-label="Tap to flip flashcard"><div class="question" id="flashQuestion"></div><div class="answer" id="flashAnswer"></div></div>
+<p class="small" id="flashHelp">Tap the card to reveal the answer. Then mark how well you remembered it.</p>
+<div class="flash-actions">
+<button class="btn secondary" onclick="changeFlash(-1)">← Previous</button>
+<button class="btn secondary" onclick="rateFlash(false)">↻ Practice again</button>
+<button class="btn" onclick="rateFlash(true)">✓ Got it</button>
+<button class="btn secondary" onclick="changeFlash(1)">Next →</button>
+</div>
+<p class="small" id="flashStatus" aria-live="polite"></p>
+</section>
 <section class="view" id="everything"><h2>Learn Everything — Full Chapter 4 + 7.2</h2><p>All concepts in the teacher's test outline, broken into recall flashcards. Tap to reveal each explanation, mark cards as learned, then take the matching concept quiz. The quiz draws only from this deck.</p><div class="card"><div class="controls"><select id="allUnit" onchange="allReset()"><option value="all">All test sections</option><option>4.1</option><option>4.2</option><option>4.3</option><option>7.2</option></select><span class="chip" id="allProgress"></span></div><div id="allCard" class="flash" onclick="allFlip()" role="button" tabindex="0"><div class="question" id="allFront"></div><div class="answer" id="allBack"></div></div><p class="small" id="allCardPos"></p><div class="controls"><button class="btn secondary" onclick="allMove(-1)">← Previous</button><button class="btn" onclick="allKnown()">✓ Know it</button><button class="btn secondary" onclick="allMove(1)">Next →</button><button class="btn secondary" onclick="allShuffle()">Shuffle cards</button></div></div><div class="card"><h3>Quiz yourself on these flashcards</h3><p>Each question asks about one card and shows four possible answers from the same chapter. You receive immediate feedback and explanations. You can quiz all cards or select one section above.</p><div class="controls"><select id="allQuizLength"><option value="10">10 questions</option><option value="20">20 questions</option><option value="30">30 questions</option><option value="all">All available questions</option></select><button class="btn" onclick="allQuizStart()">Start flashcard quiz</button><button class="btn secondary" onclick="allQuizStart(true)">Quiz missed cards</button></div><div id="allQuizBox"></div></div><div class="card"><h3>Complete concept checklist</h3><p class="small">Every card in the selected section is listed here. Click any concept to jump to its flashcard.</p><div id="allIndex" class="all-index"></div></div></section>
 <section class="view" id="practice"><h2>Scenario practice</h2><p>Practice unlimited review using your teacher's real-world question style. Each question includes feedback and explanations.</p><div class="controls"><select id="practiceUnit" onchange="startPractice()"><option value="all">All sections</option><option>4.1</option><option>4.2</option><option>4.3</option><option>7.2</option></select><button class="btn secondary" onclick="startPractice()">Shuffle / restart</button></div><div id="practiceBox"></div></section>
 <section class="view" id="exam"><h2>Mock exam</h2><div class="card"><b>23 questions total — 21 multiple choice and 2 written responses.</b><p>This is an original practice exam modeled on your teacher's prior quizzes and your current chapter test outline. Try it without your notes. Your objective score counts multiple-choice only; written responses use a self-check rubric.</p><div class="controls"><button class="btn" onclick="startExam()">Start / Restart 23-question test</button><span class="chip" id="examStatus">Not started</span></div></div><div id="examBox"></div><div class="card" id="examNext" style="display:none"><h3>Ready for new test questions?</h3><p>Choose a fresh 23-question teacher-style test: 21 multiple choice + 2 written responses. These are NEW questions, not the original 23.</p><div class="controls"><button class="btn" onclick="startFreshExam()">✨ New 23-question test</button><button class="btn secondary" onclick="startExam()">Original 23 again</button></div><p class="small" id="bankInfo"></p></div></section>
@@ -76,7 +110,40 @@ allReset();
 
 function page(name){document.querySelectorAll('.view').forEach(x=>x.classList.toggle('active',x.id===name));document.querySelectorAll('#nav button').forEach(x=>x.classList.toggle('active',x.dataset.page===name));window.scrollTo(0,0);if(name==='written')renderWritten();if(name==='everything')allRender()};document.querySelectorAll('#nav button').forEach(b=>b.onclick=()=>page(b.dataset.page));
 function renderNotes(){let v=$('unit').value;$('notes').innerHTML=NOTES.filter(t=>v==='all'||t[0]===v).map(t=>`<div class="card"><div class="tag">${t[0]}</div><h2>${t[1]}</h2>${t[2].map(s=>`<div class="study"><h3>${s[0]}</h3><p>${s[1]}</p></div>`).join('')}</div>`).join('')};
-let flIdx=0, flList=[];function resetFlash(){let v=$('flashUnit').value;flList=FLASH.filter(f=>v==='all'||f[0]===v);flIdx=0;renderFlash()}function renderFlash(){if(!flList.length)return;let f=flList[(flIdx+flList.length)%flList.length];$('flashCard').classList.remove('flipped');$('flashQuestion').textContent=f[1];$('flashAnswer').textContent=f[2];$('flashCounter').textContent=`${flIdx+1} / ${flList.length} • ${f[0]}`}function changeFlash(n){flIdx=(flIdx+n+flList.length)%flList.length;renderFlash()}function masterFlash(){let f=flList[flIdx],key=f[0]+'|'+f[1];if(!state.mastered.includes(key))state.mastered.push(key);save();changeFlash(1)}
+let flIdx=0, flList=[];
+function flashKey(f){return f[0]+'|'+f[1]}
+function resetFlash(){
+ const unit=$('flashUnit').value,mode=$('flashMode').value;
+ if(!Array.isArray(state.flashMissed))state.flashMissed=[];
+ flList=FLASH.filter(f=>(unit==='all'||f[0]===unit)&&(mode==='all'||(mode==='unlearned'&&!state.mastered.includes(flashKey(f)))||(mode==='mastered'&&state.mastered.includes(flashKey(f)))||(mode==='missed'&&state.flashMissed.includes(flashKey(f)))));
+ flIdx=0;renderFlash();
+}
+function renderFlash(){
+ const f=flList[flIdx];$('flashCard').classList.remove('flipped');
+ if(!f){$('flashQuestion').textContent='No cards in this selection yet';$('flashAnswer').textContent='Try All cards or another lesson.';$('flashCounter').textContent='0 cards';$('flashStats').textContent='';$('flashProgressBar').style.width='0%';$('flashStatus').textContent='Choose a different review mode to continue.';return}
+ const reverse=$('flashDirection').value==='reverse';
+ $('flashQuestion').textContent=reverse?f[2]:f[1];$('flashAnswer').textContent=reverse?f[1]:f[2];
+ $('flashCounter').textContent=(flIdx+1)+' / '+flList.length+' • '+f[0];
+ const keys=flList.map(flashKey),known=keys.filter(k=>state.mastered.includes(k)).length,missed=keys.filter(k=>(state.flashMissed||[]).includes(k)).length;
+ $('flashStats').textContent=known+' mastered · '+missed+' to review';
+ $('flashProgressBar').style.width=((flIdx+1)/flList.length*100)+'%';
+ $('flashStatus').textContent='Showing '+(reverse?'answer first':'question first')+'.';
+}
+function changeFlash(n){if(!flList.length)return;flIdx=(flIdx+n+flList.length)%flList.length;renderFlash()}
+function rateFlash(known){
+ if(!flList.length)return;
+ const key=flashKey(flList[flIdx]);
+ if(!Array.isArray(state.flashMissed))state.flashMissed=[];
+ if(known){if(!state.mastered.includes(key))state.mastered.push(key);state.flashMissed=state.flashMissed.filter(k=>k!==key)}
+ else{state.mastered=state.mastered.filter(k=>k!==key);if(!state.flashMissed.includes(key))state.flashMissed.push(key)}
+ save();
+ if($('flashMode').value!=='all'){const unit=$('flashUnit').value,mode=$('flashMode').value;flList=FLASH.filter(f=>(unit==='all'||f[0]===unit)&&(mode==='unlearned'?!state.mastered.includes(flashKey(f)):mode==='mastered'?state.mastered.includes(flashKey(f)):mode==='missed'?state.flashMissed.includes(flashKey(f)):true));flIdx=Math.min(flIdx,Math.max(0,flList.length-1))}
+ else flIdx=(flIdx+1)%flList.length;
+ renderFlash();
+}
+function masterFlash(){rateFlash(true)}
+function shuffleFlash(){if(!flList.length)return;flList=shuffle(flList);flIdx=0;renderFlash();$('flashStatus').textContent='Cards shuffled!'}
+
 function shuffle(a){let x=[...a];for(let i=x.length-1;i>0;i--){let j=Math.floor(Math.random()*(i+1));[x[i],x[j]]=[x[j],x[i]]}return x}
 function safeReview(s){return String(s??'').replaceAll('&','&amp;').replaceAll('<','&lt;').replaceAll('>','&gt;').replaceAll('"','&quot;').replaceAll("'",'&#39;')}
 function reviewLocation(q){
