@@ -1,0 +1,80 @@
+/* Guided Biology Course — original text, interactive diagrams, checkpoint questions. */
+(function(){
+'use strict';
+const $=id=>document.getElementById(id);
+const units=[
+{tag:'4.1',name:'Producers, consumers & decomposers',summary:'How organisms obtain energy and recycle nutrients',
+steps:[
+['Where energy enters the food web','Most ecosystems begin with producers such as plants and algae. Producers use photosynthesis to convert sunlight into chemical energy stored in sugars. Some bacteria use chemosynthesis, powered by chemical reactions instead of sunlight.'],
+['Who eats whom','Herbivores eat producers; carnivores eat other animals; omnivores eat both. Scavengers consume dead animals. Detritivores ingest fragments of dead material; decomposers such as fungi and bacteria chemically break it down and return nutrients to ecosystems.'],
+['Key distinction','Energy enters an ecosystem through producers and moves through consumers. Decomposers recycle matter, but they do not recycle energy.']
+],diagram:'roles',tip:'Test trap: decomposers return nutrients to the environment; they do not create new matter.',q:'Which organisms chemically break down dead material and recycle nutrients?',answers:['Primary consumers','Decomposers','Primary producers'],correct:1,why:'Fungi and bacteria act as decomposers, releasing nutrients from dead organisms and wastes.'},
+{tag:'4.2',name:'Food chains, food webs & trophic levels',summary:'Follow the arrows and predict population changes',
+steps:[
+['Read the arrow correctly','In a food web the arrow goes FROM the food TO the organism that eats it. Grass → rabbit means the rabbit obtains energy by eating grass—not the reverse.'],
+['Trophic levels','Primary producers occupy trophic level 1. Primary consumers are level 2; secondary consumers level 3; tertiary consumers level 4. Some omnivores can occupy more than one level depending on their food.'],
+['Predict the indirect effects','If predators disappear, some prey populations may increase. That can reduce the producers the prey consume. A food web reveals many connected pathways, not just one chain.']
+],diagram:'food',tip:'Remember: arrows show the direction of energy transfer, not the direction of an animal moving.',q:'In grass → rabbit → fox, which direction does energy flow?',answers:['Fox toward rabbit toward grass','Grass toward rabbit toward fox','In both directions equally'],correct:1,why:'Arrows point from food to consumer.'},
+{tag:'4.2',name:'Energy transfer & ecological pyramids',summary:'The 10% rule, biomass and pyramid types',
+steps:[
+['The 10% rule','On average, about 10% of energy at one trophic level transfers to the next. If producers contain 10,000 kJ, primary consumers receive about 1,000 kJ and secondary consumers about 100 kJ.'],
+['Where the rest goes','Energy supports movement, cellular respiration, maintenance, growth and other processes. Much eventually dissipates as heat; some remains in waste and uneaten material.'],
+['Three pyramids','An energy pyramid tracks available energy and is always upright. A biomass pyramid compares dry organic mass, while a numbers pyramid compares individual counts. Biomass and numbers pyramids can sometimes be inverted.']
+],diagram:'energy',tip:'Do not confuse energy and matter: energy flows one way, while atoms are reused in cycles.',q:'If producers have 20,000 kJ, about how much reaches secondary consumers?',answers:['2,000 kJ','200 kJ','20 kJ'],correct:1,why:'Two 10% transfers: 20,000 → 2,000 → 200 kJ.'},
+{tag:'4.3',name:'Carbon cycle & ocean acidification',summary:'Photosynthesis, respiration, sources, sinks and CO₂',
+steps:[
+['Carbon moves between reservoirs','Carbon is stored in the atmosphere, oceans, soils, organisms, fossil fuels and rocks. A carbon sink absorbs more carbon than it releases; a source releases more than it absorbs.'],
+['Short and long carbon pathways','Photosynthesis takes up CO₂ into organic molecules. Eating moves carbon through food webs. Respiration and decomposition release carbon; burning fossil fuels adds long-stored carbon to the atmosphere. An organism can store carbon and release it.'],
+['Ocean acidification','Extra atmospheric CO₂ dissolves into seawater and produces chemical reactions that increase hydrogen ions. The lower pH and reduced carbonate availability can make it harder for many corals and shell-building animals to form calcium carbonate structures. Coral bleaching is different: environmental stress such as high temperature causes corals to lose symbiotic algae.']
+],diagram:'carbon',tip:'Carbon sink vs. source is a NET balance: a tree can respire CO₂ while growing and storing more carbon overall.',q:'Which process directly removes CO₂ from the atmosphere and stores carbon in sugars?',answers:['Cellular respiration','Photosynthesis','Fossil fuel combustion'],correct:1,why:'Photosynthesis fixes inorganic carbon into organic molecules.'},
+{tag:'4.3',name:'Water cycle & transpiration',summary:'Follow water through air, land and organisms',
+steps:[
+['Movement through the environment','Evaporation changes liquid water into water vapor. Condensation forms droplets and clouds; precipitation brings water back to Earth. Runoff flows across the surface; infiltration and percolation move water into and through soil. Collection occurs in rivers, lakes and oceans.'],
+['How plants move water','Water enters plant roots and rises through xylem. Evaporation from leaves and vapor loss through stomata—transpiration—help pull more water upward.'],
+['When the cycle is disrupted','A drought is an extended period of abnormally low precipitation, often leading to water shortages and ecosystem stress.']
+],diagram:'water',tip:'Transpiration is specifically water loss from plants, mostly through the stomata in leaves.',q:'What is the name for water vapor leaving plants mainly through leaf stomata?',answers:['Condensation','Transpiration','Runoff'],correct:1,why:'Transpiration sends water vapor from plants into the atmosphere.'},
+{tag:'4.3',name:'The nitrogen cycle',summary:'Fixation, ammonification, nitrification and denitrification',
+steps:[
+['Why nitrogen is essential','Organisms need nitrogen to make proteins and nucleic acids such as DNA. Most cannot use atmospheric N₂ directly.'],
+['Follow the processes','Nitrogen fixation converts N₂ into usable nitrogen forms. Ammonification turns organic nitrogen from wastes and dead organisms into ammonium (NH₄⁺). Nitrification converts ammonium into nitrite (NO₂⁻) and then nitrate (NO₃⁻).'],
+['Return to living things and air','Plants assimilate ammonium or nitrate into organic molecules; animals obtain nitrogen by eating plants or other animals. Denitrifying bacteria convert nitrate back into N₂, returning it to the atmosphere.']
+],diagram:'nitrogen',tip:'A common confusion: nitrification ends with nitrate; denitrification returns nitrogen gas to the atmosphere.',q:'Which process converts nitrate into atmospheric nitrogen gas?',answers:['Denitrification','Ammonification','Assimilation'],correct:0,why:'Denitrifying bacteria return nitrogen to the air as N₂.'},
+{tag:'4.3',name:'Phosphorus cycle & limiting nutrients',summary:'Rock weathering, uptake, decomposition and runoff',
+steps:[
+['Where phosphorus begins','Unlike the nitrogen cycle, phosphorus has no major atmospheric gas phase. Weathering releases phosphate from rocks into soil and water.'],
+['How it cycles','Plants take up phosphate; animals obtain it by feeding. Excretion and decomposition return phosphorus to soil and water. Phosphorus may leach into groundwater or become locked in sediments and rocks.'],
+['Why small amounts matter','Phosphorus is essential for DNA, RNA, ATP and cell membranes. It is often a limiting nutrient in freshwater. Extra fertilizer and mining can move excess phosphorus into waterways and trigger algal blooms.']
+],diagram:'phosphorus',tip:'Remember: phosphorus is stored mainly in rocks, sediments, soil, water and organisms—not as atmospheric gas.',q:'Which nutrient cycle lacks a major gaseous atmospheric phase?',answers:['Carbon','Phosphorus','Nitrogen'],correct:1,why:'Phosphorus chiefly moves through rocks, water, soils and organisms.'},
+{tag:'7.2',name:'Human impacts: runoff, acid rain & pollution',summary:'Eutrophication, dead zones, bioaccumulation and cleanup',
+steps:[
+['Eutrophication and dead zones','Nutrient-rich runoff can cause fast algal growth. When algae die, decomposers use oxygen. Dissolved oxygen may become dangerously low, creating hypoxic dead zones and harming aquatic life.'],
+['Acid rain','Sulfur dioxide (SO₂) and nitrogen oxides (NOₓ) from emissions react in the atmosphere to form sulfuric and nitric acids, which may fall with precipitation.'],
+['Pollutants and remediation','Bioaccumulation is the buildup of persistent pollutants within one organism over time. Biomagnification describes increasing pollutant concentrations at higher trophic levels. Plastic and microplastic debris can accumulate in oceans. Bioremediation uses living organisms, often microbes, to help treat certain pollutants.']
+],diagram:'impact',tip:'Individual = bioaccumulation. Across food-web trophic levels = biomagnification.',q:'What is the direct cause of oxygen loss during many eutrophication events?',answers:['Decomposition of dead algal biomass','Extra oxygen produced by algae','Water evaporating'],correct:0,why:'Decomposers consume dissolved oxygen while breaking down dead algae.'}
+];
+function diagram(type){
+const node=(x,y,w,label,accent)=>'<rect x="'+x+'" y="'+y+'" width="'+w+'" height="48" rx="12" fill="'+(accent?'var(--t-accent)':'var(--t-card2)')+'" stroke="var(--t-border)"/><text x="'+(x+w/2)+'" y="'+(y+29)+'" text-anchor="middle" fill="'+(accent?'var(--t-accent-text)':'var(--t-text)')+'" font-size="14" font-weight="700">'+label+'</text>';
+const arrow=(x1,y1,x2,y2)=>'<path d="M'+x1+' '+y1+' L'+x2+' '+y2+'" stroke="var(--t-accent)" stroke-width="3" fill="none" marker-end="url(#teachArrow)"/>';
+let shapes='';
+if(type==='roles')shapes=node(8,80,125,'☀ Sun')+node(175,80,125,'🌿 Producer',true)+node(343,80,125,'🐇 Consumer')+node(175,187,125,'🍄 Decomposer')+arrow(133,104,170,104)+arrow(300,104,338,104)+arrow(410,135,305,200)+arrow(230,186,230,134);
+if(type==='food')shapes=node(15,90,130,'🌱 Grass',true)+node(180,90,130,'🐇 Rabbit')+node(345,90,130,'🦊 Fox')+node(180,192,130,'🐛 Insects')+arrow(146,114,176,114)+arrow(310,114,340,114)+arrow(80,140,176,214)+arrow(310,214,398,145);
+if(type==='energy')shapes='<polygon points="245,14 68,260 423,260" fill="var(--t-card2)" stroke="var(--t-border)" stroke-width="3"/><line x1="176" y1="110" x2="314" y2="110" stroke="var(--t-accent)" stroke-width="2"/><line x1="124" y1="180" x2="365" y2="180" stroke="var(--t-accent)" stroke-width="2"/><g font-size="17" text-anchor="middle" fill="var(--t-text)" font-weight="700"><text x="245" y="83">100 kJ</text><text x="245" y="151">1,000 kJ</text><text x="245" y="222">10,000 kJ</text><text x="245" y="248" font-size="12">Producers</text></g>';
+if(type==='carbon')shapes=node(170,12,150,'☁ CO₂ in air',true)+node(15,138,150,'🌳 Plants')+node(325,138,150,'🏭 Combustion')+node(170,236,150,'🐾 Consumers')+arrow(182,65,104,133)+arrow(165,162,187,248)+arrow(326,248,397,189)+arrow(402,134,306,56)+arrow(244,235,244,66);
+if(type==='water')shapes=node(170,10,150,'☁ Clouds',true)+node(10,145,145,'🌊 Ocean / lake')+node(335,145,145,'🌳 Plants')+node(170,236,150,'💧 Groundwater')+arrow(75,141,178,52)+arrow(318,52,406,141)+arrow(334,169,301,65)+arrow(408,195,305,249)+arrow(170,261,86,195);
+if(type==='nitrogen')shapes=node(178,4,146,'🌤 Air N₂',true)+node(18,106,145,'NH₄⁺')+node(192,106,120,'NO₂⁻')+node(343,106,130,'NO₃⁻')+node(172,227,153,'🌱 Organic N')+arrow(245,55,92,102)+arrow(164,129,187,129)+arrow(313,129,338,129)+arrow(401,158,318,241)+arrow(175,251,93,158)+arrow(470,108,318,36);
+if(type==='phosphorus')shapes=node(9,35,146,'⛰ Rocks',true)+node(179,35,140,'🌱 Plants')+node(340,35,142,'🐾 Animals')+node(172,199,148,'🌍 Soil / water')+arrow(156,59,174,59)+arrow(320,59,336,59)+arrow(398,87,309,221)+arrow(173,223,91,85)+arrow(246,197,246,88);
+if(type==='impact')shapes=node(10,83,142,'🚜 Fertilizer')+node(183,83,142,'🟢 Algal bloom',true)+node(357,83,123,'🦠 Decay')+node(183,215,142,'🐟 Low oxygen')+arrow(153,106,179,106)+arrow(326,106,352,106)+arrow(417,133,307,219);
+return '<svg viewBox="0 0 492 295" role="img" aria-label="'+({roles:'Energy from sunlight to producers and consumers, then nutrient recycling',food:'A food web with energy flowing from grass to rabbit and fox',energy:'Energy pyramid showing the ten percent rule',carbon:'Diagram of carbon in air, plants, consumers and combustion',water:'Diagram of precipitation, evaporation, transpiration and groundwater',nitrogen:'Nitrogen cycle showing fixation, nitrification, assimilation, ammonification and denitrification',phosphorus:'Phosphorus moves from rocks through plants and animals to soil and water',impact:'Nutrient runoff causes algae growth, decomposition and low oxygen'}[type])+'" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-height:340px;display:block"><defs><marker id="teachArrow" markerWidth="9" markerHeight="9" refX="8" refY="4" orient="auto"><path d="M0 0 L8 4 L0 8" fill="var(--t-accent)"/></marker></defs>'+shapes+'</svg>';
+}
+let at=0;let done={};try{done=JSON.parse(localStorage.getItem('biology:guided-course:v1')||'{}')}catch(e){}
+function persist(){try{localStorage.setItem('biology:guided-course:v1',JSON.stringify(done))}catch(e){}}
+function show(index){at=Math.min(units.length-1,Math.max(0,index));const u=units[at];$('courseOutline').innerHTML=units.map((v,i)=>'<button class="course-module'+(i===at?' active':'')+'" data-course-index="'+i+'"><span class="number">'+(i+1)+'</span><span><strong>'+v.name+'</strong><small>'+v.tag+' · '+v.summary+'</small></span>'+(done[i]?'<span class="done">✓</span>':'')+'</button>').join('');
+$('courseOutline').querySelectorAll('button').forEach(b=>b.onclick=()=>show(Number(b.dataset.courseIndex)));
+const lesson=$('courseLesson');lesson.innerHTML='<div class="tag">LESSON '+(at+1)+' OF '+units.length+' · '+u.tag+'</div><h2>'+u.name+'</h2><p>'+u.summary+'</p><div class="course-visual">'+diagram(u.diagram)+'</div>'+u.steps.map((step,i)=>'<h3>'+(i+1)+'. '+step[0]+'</h3><p>'+step[1]+'</p>').join('')+'<div class="course-tip"><b>Remember:</b> '+u.tip+'</div><div class="course-check"><h3>Check your understanding</h3><p>'+u.q+'</p>'+u.answers.map((answer,i)=>'<button type="button" data-answer="'+i+'">'+String.fromCharCode(65+i)+'. '+answer+'</button>').join('')+'<div class="course-feedback" aria-live="polite"></div></div>';
+const check=lesson.querySelector('.course-check');
+check.querySelectorAll('button').forEach(b=>b.onclick=()=>{const selected=Number(b.dataset.answer),good=selected===u.correct;check.querySelectorAll('button').forEach(x=>{x.disabled=true;x.classList.toggle('correct',Number(x.dataset.answer)===u.correct);x.classList.toggle('wrong',Number(x.dataset.answer)===selected&&!good)});check.querySelector('.course-feedback').textContent=(good?'✓ Correct! ':'Review this: ')+u.why;if(good){done[at]=true;persist();const badge=$('courseCompleted');if(badge)badge.textContent=Object.keys(done).filter(k=>done[k]).length+' of '+units.length+' lessons complete';}});
+$('courseBack').disabled=at===0;$('courseNext').textContent=at===units.length-1?'Review first lesson ↺':'Next lesson →';$('courseProgressBar').style.width=(Object.keys(done).filter(k=>done[k]).length/units.length*100)+'%';$('courseCompleted').textContent=Object.keys(done).filter(k=>done[k]).length+' of '+units.length+' lessons complete';
+}
+function init(){if(!$('courseOutline'))return;$('courseBack').onclick=()=>show(at-1);$('courseNext').onclick=()=>show(at===units.length-1?0:at+1);show(0)}
+if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init);else init();
+})();
