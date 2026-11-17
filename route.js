@@ -1,7 +1,7 @@
 (()=>{
 function route(){
 const params=new URLSearchParams(location.search),mode=params.get('mode'),topic=params.get('topic');
-const allowed=new Set(['home','exam','practice','generator','hardcore','learn','flash','everything','written','tutor','ai-live','path','lab']);
+const allowed=new Set(['home','course','exam','practice','generator','hardcore','learn','flash','everything','written','tutor','ai-live','path','lab']);
 if(!mode||!allowed.has(mode))return;
 const btn=document.querySelector('#nav button[data-page="'+mode+'"]');
 if(!btn)return;
