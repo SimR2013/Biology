@@ -1,0 +1,20 @@
+/* Guided Biology Course */
+.course-intro{background:var(--t-card,#1b3552);border:1px solid var(--t-border,#50708e);border-radius:20px;padding:22px;margin:0 0 18px}
+.course-intro p{max-width:740px}.course-outline{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin:20px 0}
+.course-module{background:var(--t-card,#1b3552);border:1px solid var(--t-border,#50708e);padding:16px;border-radius:16px;text-align:left;color:var(--t-text,#edf5ff);cursor:pointer;display:flex;align-items:center;gap:13px;width:100%}
+.course-module.active{border:2px solid var(--t-accent,#a8d2ef);background:var(--t-card2,#254362)}.course-module .number{background:var(--t-accent,#a8d2ef);color:var(--t-accent-text,#142d48);border-radius:10px;font-weight:900;min-width:39px;height:39px;display:grid;place-items:center}
+.course-module strong{display:block}.course-module small{display:block;color:var(--t-muted,#c1d4e9);line-height:1.45}.course-module .done{margin-left:auto;color:var(--t-accent,#a8d2ef);font-weight:800}
+.course-lesson{background:var(--t-card,#1b3552);border:1px solid var(--t-border,#50708e);border-radius:19px;padding:22px;margin:18px 0}
+.course-lesson h3{margin-top:22px;font-size:1.15rem}.course-lesson p{line-height:1.72}.course-lesson ul{color:var(--t-muted,#c1d4e9);line-height:1.7;padding-left:21px}
+.course-sequence{display:flex;gap:6px;flex-wrap:wrap;align-items:center;margin:15px 0}
+.course-sequence span{background:var(--t-card2,#254362);color:var(--t-text,#edf5ff);border:1px solid var(--t-border,#50708e);border-radius:10px;padding:10px;font-size:.85rem;flex:1 1 115px;text-align:center}
+.course-sequence i{font-style:normal;color:var(--t-accent,#a8d2ef);font-weight:800}
+.course-tip{padding:15px;border-left:4px solid var(--t-accent,#a8d2ef);background:var(--t-card2,#254362);border-radius:0 12px 12px 0;margin:17px 0;line-height:1.6}
+.course-check{border:1px solid var(--t-border,#50708e);border-radius:16px;padding:19px;margin:18px 0;background:var(--t-card2,#254362)}
+.course-check h3{margin:0 0 10px}.course-check button{display:block;width:100%;text-align:left;padding:12px 13px;margin:8px 0;background:var(--t-card,#1b3552);border:1px solid var(--t-border,#50708e);border-radius:11px;color:var(--t-text,#edf5ff);cursor:pointer;font:inherit}
+.course-check button:disabled{opacity:.9;cursor:default}.course-check button.correct{border-color:#83c9a9;background:#245544;color:#f1fff9}.course-check button.wrong{border-color:#e6a1a8;background:#593942;color:#fff}
+.course-feedback{min-height:24px;color:var(--t-text,#edf5ff);margin-top:8px;line-height:1.6}
+.course-nav{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;margin:17px 0}.course-nav button{flex:1;min-width:125px}
+.course-progress{height:9px;background:var(--t-card2,#254362);border-radius:12px;overflow:hidden}.course-progress>div{height:100%;background:var(--t-accent,#a8d2ef);transition:width .2s}
+.course-jump{margin-top:13px;display:flex;gap:9px;flex-wrap:wrap}
+@media(max-width:690px){.course-outline{grid-template-columns:1fr}.course-lesson,.course-intro{padding:16px}.course-nav button{min-width:0}.course-sequence i{display:none}}
