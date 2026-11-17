@@ -4,9 +4,9 @@
 function init(){
 const root=document.body,isHub=!!document.getElementById('chapters'),isChapter=!!document.getElementById('nav'),isForge=!!document.getElementById('missions');
 if(!(isHub||isChapter||isForge))return;
-const base=[['⌂','Home','index.html'],['📖','Learn','chapter4.html?mode=course'],['🚀','Smart','chapter4.html?mode=smart'],['🧠','Cards','chapter4.html?mode=flash'],['🎮','BioForge','bioforge.html']];
+const base=[['⌂','Home','index.html'],['📘','Learn','chapter4.html?mode=course'],['🎯','Tests','chapter4.html?mode=exam'],['🧠','Cards','chapter4.html?mode=flash'],['🚀','Smart','chapter4.html?mode=smart'],['🎮','Game','bioforge.html']];
 const dock=document.createElement('nav');dock.className='vault-dock';dock.setAttribute('aria-label','Mobile quick navigation');
-const here=isHub?'Home':isForge?'BioForge':'Study';
+const currentMode=new URLSearchParams(location.search).get('mode');const here=isHub?'Home':isForge?'Game':currentMode==='smart'?'Smart':currentMode==='exam'?'Tests':currentMode==='flash'?'Cards':'Learn';
 dock.innerHTML=base.map(([emoji,label,url])=>'<a href="'+url+'"'+(here===label?' aria-current="page"':'')+'><span aria-hidden="true">'+emoji+'</span>'+label+'</a>').join('');
 root.appendChild(dock);
 const top=document.createElement('button');top.className='vault-to-top';top.type='button';top.textContent='↑';top.setAttribute('aria-label','Return to top');top.onclick=()=>scrollTo({top:0,behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'instant':'smooth'});root.appendChild(top);
