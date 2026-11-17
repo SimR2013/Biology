@@ -18,3 +18,9 @@
 .course-progress{height:9px;background:var(--t-card2,#254362);border-radius:12px;overflow:hidden}.course-progress>div{height:100%;background:var(--t-accent,#a8d2ef);transition:width .2s}
 .course-jump{margin-top:13px;display:flex;gap:9px;flex-wrap:wrap}
 @media(max-width:690px){.course-outline{grid-template-columns:1fr}.course-lesson,.course-intro{padding:16px}.course-nav button{min-width:0}.course-sequence i{display:none}}
+
+/* Teacher's Key Takeaways checklist inside each guided lesson */
+.course-teacher{margin:20px 0;border:1px solid var(--t-border,#50708e);border-radius:15px;background:var(--t-card2,#254362);padding:18px}
+.course-teacher h3{margin:0 0 10px!important;color:var(--t-text,#edf5ff)}
+.course-teacher li{padding:3px 0;color:var(--t-text,#edf5ff)}
+.course-teacher p{margin:12px 0 0;color:var(--t-muted,#c1d4e9)}
