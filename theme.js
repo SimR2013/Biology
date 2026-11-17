@@ -1,7 +1,7 @@
 /* Biology Study Vault — consistent preset, automatic and color wheel themes */
 (()=>{'use strict';
 const KEY='biology:color-theme',HUE='biology:custom-hue',LIGHT='biology:custom-light';
-const presets=[['blue','💙 Calm Blue'],['midnight','🌙 Midnight'],['lavender','💜 Lavender'],['forest','🌲 Forest'],['light','☀️ Light'],['ocean','🌊 Ocean'],['rose','🌹 Rose'],['sunset','🌅 Sunset'],['amber','🍯 Amber'],['mint','🍃 Mint'],['berry','🫐 Berry'],['slate','🪨 Slate'],['auto','🌓 Auto (device)'],['custom','🎨 Custom color wheel']];
+const presets=[['blue','💙 Calm Blue'],['midnight','🌙 Midnight'],['lavender','💜 Lavender'],['forest','🌲 Forest'],['light','☀️ Light'],['ocean','🌊 Ocean'],['rose','🌹 Rose'],['sunset','🌅 Sunset'],['amber','🍯 Amber'],['mint','🍃 Mint'],['berry','🫐 Berry'],['slate','🪨 Slate'],['beach','🏖️ Beach Blue + Orange'],['tropical','🌴 Tropical Aqua + Coral'],['sunshine','☀️ Sunshine Yellow + Blue'],['candy','🍬 Candy Pink + Mint'],['lagoon','🐠 Lagoon Teal + Peach'],['festival','🎉 Festival Purple + Lime'],['auto','🌓 Auto (device)'],['custom','🎨 Custom color wheel']];
 const known=new Set(presets.map(x=>x[0]));
 const read=(key,def)=>{try{return localStorage.getItem(key)||def}catch(e){return def}};
 const save=(key,val)=>{try{localStorage.setItem(key,val)}catch(e){}};
@@ -39,7 +39,7 @@ presets.forEach(([id,label])=>{const option=document.createElement('option');opt
 selector.onchange=()=>apply(selector.value);
 const toggle=wrap.querySelector('.theme-more'),panel=wrap.querySelector('#themePanel');toggle.onclick=()=>{panel.hidden=!panel.hidden;toggle.setAttribute('aria-expanded',String(!panel.hidden))};
 const grid=wrap.querySelector('#themeSwatches');
-presets.forEach(([id,label])=>{let b=document.createElement('button');b.type='button';b.className='theme-swatch';b.textContent=label;b.onclick=()=>apply(id);grid.append(b)});
+presets.forEach(([id,label])=>{let b=document.createElement('button');b.type='button';b.className='theme-swatch';b.dataset.theme=id;b.innerHTML='<span class="theme-swatch-dots" aria-hidden="true"><i></i><i></i><i></i></span><span>'+label+'</span>';b.setAttribute('aria-label','Use '+label+' theme');b.onclick=()=>apply(id);grid.append(b)});
 const wheel=wrap.querySelector('#themeWheel'),slider=wrap.querySelector('#themeHue'),mode=wrap.querySelector('#themeCustomLight');
 function rgbToHue(v){const num=parseInt(v.slice(1),16);let r=(num>>16)/255,g=((num>>8)&255)/255,b=(num&255)/255;let min=Math.min(r,g,b),max=Math.max(r,g,b),d=max-min;if(!d)return 210;let h=max===r?((g-b)/d)%6:max===g?(b-r)/d+2:(r-g)/d+4;return Math.round((h*60+360)%360)}
 wheel.value=hex(hue,65,52);slider.value=hue;mode.value=lightChoice;
