@@ -40,7 +40,7 @@ const st=document.createElement('style');st.textContent=css;document.head.append
 const buttons=[...nav.querySelectorAll('button[data-page]')],by=new Map(buttons.map(b=>[b.dataset.page,b]));
 nav.replaceChildren();const dash=by.get('home');if(dash){dash.classList.add('nav-home');dash.textContent='⌂ Dashboard';nav.append(dash)}
 const groups=[
-['📚 Study & Memorize',['learn','everything','flash','tutor','ai-live']],
+['📚 Study & Memorize',['course','learn','everything','flash','tutor','ai-live']],
 ['📝 Tests & Exam Prep',['practice','exam','hardcore','written','generator']],
 ['🎮 Play & Explore',['path','lab']]
 ];
@@ -53,7 +53,7 @@ home.prepend(lead);
 function open(p){const b=by.get(p);if(b)b.click()}
 const paths=document.createElement('div');paths.className='organize-paths';
 for(const entry of [
-['📚','Study & Memorize','Read the lesson notes, review definitions, and use the flashcards with recall checks.','Open study notes','learn'],
+['📘','Learn Everything','Guided lessons with original diagrams, simple teaching, and checkpoints.','Start guided course','course'],
 ['🎯','Test Preparation','Practice the teacher-style exam format: 23 questions, including 2 written responses.','Start mock exam','exam'],
 ['🌎','Explore & Play','Control food webs, runoff and carbon pathways in original BioForge missions.','Launch BioForge','bioforge']]){
 const [ico,title,desc,action,page]=entry;const box=document.createElement('div');box.className='organize-path';box.innerHTML='<div style="font-size:2rem">'+ico+'</div><h3>'+title+'</h3><p>'+desc+'</p><button type="button">'+action+'</button>';box.querySelector('button').onclick=()=>page==='bioforge'?location.assign('bioforge.html'):open(page);paths.append(box)}
