@@ -47,3 +47,30 @@
  .smart-diagram-arrow{font-size:1.1rem}
  #smartHub :is(button,a,select){touch-action:manipulation}
 }
+
+/* Mobile-first Chapter 4: keep the content and quick actions above the fold. */
+@media(max-width:799px){
+body:has(#nav) header{padding:8px 13px!important;position:relative!important}
+body:has(#nav) header .inside{max-width:100%;padding:0!important}
+body:has(#nav) header .inside>a:first-child{font-size:.87rem!important;margin:0 0 5px!important}
+body:has(#nav) header .tag{font-size:.64rem!important;letter-spacing:.1em!important;margin:4px 0!important}
+body:has(#nav) header h1{font-size:clamp(1.35rem,5.3vw,1.8rem)!important;margin:4px 0 5px!important;line-height:1.18!important}
+body:has(#nav) header .inside>p{display:none!important}
+body:has(#nav) header .organize-banner{display:none!important}
+body:has(#nav) header #nav{display:none!important}
+body:has(#nav) main{padding-top:12px!important}
+body:has(#nav) .vault-screen-actions{justify-content:stretch!important;margin:0 0 12px!important;display:grid!important;grid-template-columns:minmax(0,1fr) auto!important;gap:8px!important}
+body:has(#nav) .vault-view-chooser{width:100%!important;max-width:none!important;min-width:0!important;height:46px!important;background:var(--t-card2)!important;color:var(--t-text)!important;border:1px solid var(--t-border)!important}
+body:has(#nav) .vault-screen-actions a{min-height:46px;display:flex;align-items:center;justify-content:center;white-space:nowrap;font-size:.75rem;padding:8px}
+body:has(#nav) .view.active{margin:0}
+body:has(#nav) .view.active>h2{font-size:1.4rem}
+body:has(#nav) .view.active .card{padding:15px!important}
+body:has(#nav) .controls{flex-wrap:wrap}
+body:has(#nav) button,body:has(#nav) select{min-height:42px}
+body:has(#nav) .vault-dock{padding-bottom:max(8px,env(safe-area-inset-bottom))!important;background:var(--t-header)!important}
+body:has(#nav) .vault-dock a{font-size:.73rem!important;min-width:0!important;padding:6px 2px!important}
+body:has(#nav) .vault-dock a span{font-size:1.3rem!important}
+body:has(#nav) .smart-tabbar{top:0}
+body:has(#nav) .flash-settings{grid-template-columns:1fr!important}
+body:has(#nav) #flashCard{min-height:220px}
+}
